@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+    <h2>Register</h2>
+    <form method="post" action="{% url 'users:auth-register' %}">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <p>Email: <input type="text" name="email"/></p>
+        <p>Username: <input type="text" name="username"/></p>
+        <p>Password: <input type="password" name="password"/></p>
+        <p>Password2: <input type="password" name="password2"/></p>
+
+        <button class="btn btn-success" type="submit">Cadastrar</button>
+    </form>
+{% endblock %}
